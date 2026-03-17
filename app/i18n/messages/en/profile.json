@@ -92,6 +92,8 @@
     "testFailed": "Webhook test failed",
     "docs": {
       "intro": "When a new email is received, we will send a POST request to the configured URL with the following headers:",
+      "wecomHint": "If the URL is a WeCom group robot webhook (qyapi.weixin.qq.com), MoeMail will automatically send WeCom-compatible markdown payload:",
+      "wecomTitle": "New mail notification",
       "exampleBody": "Request body example:",
       "subject": "Email Subject",
       "content": "Email text content",

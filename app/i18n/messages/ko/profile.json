@@ -92,6 +92,8 @@
     "testFailed": "Webhook 테스트 실패",
     "docs": {
       "intro": "새 이메일을 받으면 다음 헤더와 함께 설정된 URL로 POST 요청을 보냅니다:",
+      "wecomHint": "URL이 WeCom(기업 위챗) 그룹 로봇 Webhook(qyapi.weixin.qq.com)인 경우, MoeMail이 WeCom 호환 markdown 페이로드를 자동으로 전송합니다:",
+      "wecomTitle": "New mail notification",
       "exampleBody": "요청 본문 예시:",
       "subject": "이메일 제목",
       "content": "이메일 텍스트 내용",

@@ -190,6 +190,16 @@ export function WebhookConfig() {
                   X-Webhook-Event: new_message
                 </pre>
 
+                <p className="text-xs text-muted-foreground">{t("docs.wecomHint")}</p>
+                <pre className="bg-background p-2 rounded text-xs overflow-auto">
+                  {`{
+  "msgtype": "markdown",
+  "markdown": {
+    "content": "**MoeMail ${t("docs.wecomTitle") }**\\n\\n> ${t("docs.subject")}: ...\\n> ${t("docs.content")}: ..."
+  }
+}`}
+                </pre>
+
                 <p>{t("docs.exampleBody")}</p>
                 <pre className="bg-background p-2 rounded text-xs overflow-auto">
                   {`{

@@ -92,6 +92,8 @@
     "testFailed": "Webhook テストに失敗しました",
     "docs": {
       "intro": "新しいメールを受信すると、設定した URL に POST リクエストを送信します。リクエストヘッダーには以下が含まれます:",
+      "wecomHint": "URL が WeCom グループロボット Webhook（qyapi.weixin.qq.com）の場合、MoeMail は WeCom 互換の markdown ペイロードを自動送信します:",
+      "wecomTitle": "New mail notification",
       "exampleBody": "リクエストボディ例:",
       "subject": "メール件名",
       "content": "メールテキスト内容",

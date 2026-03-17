@@ -92,6 +92,8 @@
     "testFailed": "Webhook 测试失败",
     "docs": {
       "intro": "当收到新邮件时，我们会向配置的 URL 发送 POST 请求，请求头包含:",
+      "wecomHint": "如果是企业微信群机器人 Webhook（qyapi.weixin.qq.com），系统会自动按企业微信要求发送 markdown 格式:",
+      "wecomTitle": "新邮件通知",
       "exampleBody": "请求体示例:",
       "subject": "邮件主题",
       "content": "邮件文本内容",
