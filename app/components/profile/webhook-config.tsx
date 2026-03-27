@@ -55,14 +55,23 @@ export function WebhookConfig() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!url) return
+    const normalizedUrl = url.trim()
+
+    if (enabled && !normalizedUrl) {
+      toast({
+        title: t("saveFailed"),
+        description: t("saveFailed"),
+        variant: "destructive"
+      })
+      return
+    }
 
     setLoading(true)
     try {
       const res = await fetch("/api/webhook", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, enabled })
+        body: JSON.stringify({ url: normalizedUrl, enabled })
       })
 
       if (!res.ok) throw new Error(t("saveFailed"))
@@ -138,13 +147,6 @@ export function WebhookConfig() {
                 type="url"
                 required
               />
-              <Button type="submit" disabled={loading} className="flex-shrink-0">
-                {loading ? (
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                ) : (
-                  tCommon("save")
-                )}
-              </Button>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -218,6 +220,20 @@ export function WebhookConfig() {
           </div>
         </div>
       )}
+
+      <div className="flex justify-end">
+        <Button
+          type="submit"
+          disabled={loading || (enabled && !url.trim())}
+          className="flex-shrink-0"
+        >
+          {loading ? (
+            <Loader2 className="w-4 h-4 animate-spin" />
+          ) : (
+            tCommon("save")
+          )}
+        </Button>
+      </div>
     </form>
   )
-} 
+}

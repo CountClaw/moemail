@@ -7,8 +7,18 @@ import { z } from "zod"
 export const runtime = "edge"
 
 const webhookSchema = z.object({
-  url: z.string().url(),
+  url: z.string().trim(),
   enabled: z.boolean()
+}).superRefine(({ url, enabled }, ctx) => {
+  if (!enabled || z.string().url().safeParse(url).success) {
+    return
+  }
+
+  ctx.addIssue({
+    code: z.ZodIssueCode.custom,
+    path: ["url"],
+    message: "Invalid webhook URL"
+  })
 })
 
 export async function GET() {
